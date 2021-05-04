@@ -492,6 +492,13 @@
         colTitle.classList.replace('col-md-6', 'col-md-12')
         console.log(colTitle)
       }
+
+      // EX16) Write a function to remove the "Search" magnifying glass icon
+      const removeSearchIcon = function(){
+        let parentIcon = document.querySelector('header div.col-4:last-of-type a.text-muted')
+        parentIcon.innerText = ''
+        console.log(parentIcon)
+      }      
     </script>
   
 
