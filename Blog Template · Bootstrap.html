@@ -378,7 +378,7 @@
           <!-- /.blog-post -->
 
           <nav class="blog-pagination">
-            <a class="btn btn-outline-primary" href="https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/353731835510277.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2TAWW44RCEE6YREN%2F20210504%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210504T114826Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27index.html&amp;X-Amz-Signature=464f3c1760cc8d7806dfecb37b290ac5584fb1423d8452c257b0a02641664420#">Older</a>
+            <a onclick="removeOldBlogPost()" class="btn btn-outline-primary" href="#blogHeader">Older</a>
             <a onclick="addNewBlogPost()" class="btn btn-outline-secondary" href="#blogHeader" tabindex="-1" aria-disabled="true">Newer</a>
           </nav>
         </div>
@@ -513,7 +513,6 @@
       }
 
       // EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
-
       const addNewBlogPost = function(){
         let div = document.createElement('div')
         div.classList.add('blog-post')
@@ -527,7 +526,17 @@
         let latestBlog = document.querySelector('.blog-main .blog-post')
         parentBlog.insertBefore(div, latestBlog)
         console.log(latestBlog)
+
       }
+
+      // EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
+      const removeOldBlogPost = function(){
+        let oldestPost = document.querySelector('div.blog-post:last-of-type')
+        oldestPost.remove()
+        // console.log(oldestPost)
+      }
+
+      
 
     </script>
   
