@@ -222,7 +222,7 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8 blog-main">
-          <h3 class="pb-4 mb-4 font-italic border-bottom">From the Firehose</h3>
+          <h3 id="blogHeader" class="pb-4 mb-4 font-italic border-bottom">From the Firehose</h3>
 
           <div class="blog-post">
             <h2 class="blog-post-title">Sample blog post</h2>
@@ -379,7 +379,7 @@
 
           <nav class="blog-pagination">
             <a class="btn btn-outline-primary" href="https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/353731835510277.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2TAWW44RCEE6YREN%2F20210504%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210504T114826Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27index.html&amp;X-Amz-Signature=464f3c1760cc8d7806dfecb37b290ac5584fb1423d8452c257b0a02641664420#">Older</a>
-            <a class="btn btn-outline-secondary disabled" href="https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/353731835510277.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA2TAWW44RCEE6YREN%2F20210504%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210504T114826Z&amp;X-Amz-Expires=600&amp;X-Amz-SignedHeaders=host&amp;response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27index.html&amp;X-Amz-Signature=464f3c1760cc8d7806dfecb37b290ac5584fb1423d8452c257b0a02641664420#" tabindex="-1" aria-disabled="true">Newer</a>
+            <a onclick="addNewBlogPost()" class="btn btn-outline-secondary" href="#blogHeader" tabindex="-1" aria-disabled="true">Newer</a>
           </nav>
         </div>
         <!-- /.blog-main -->
@@ -502,12 +502,33 @@
       
       // EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
       const trimParagraph = function(){
-        let arrBlogP = document.querySelectorAll('div.blog-post p.blog-post-meta + p')
+        // let arrBlogP = document.querySelectorAll('div.blog-post p.blog-post-meta + p') 
+        let arrBlogP = document.querySelectorAll('.blog-post>p:nth-of-type(2)')
         // for(let i=0; i<arrBlogP; i++){
-        //   arrBlogP
-        // }
-        console.log(arrBlogP)
+          // arrBlogP[i] = arrBlogP[i].innerText.slice(0, 50)
+          // console.log(arrBlogP[i])
+          // }
+        arrBlogP.forEach((arrBlogP)=>(arrBlogP.innerText = arrBlogP.innerText.slice(0, 50)))
+        // console.log(arrBlogP)
       }
+
+      // EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
+
+      const addNewBlogPost = function(){
+        let div = document.createElement('div')
+        div.classList.add('blog-post')
+
+        let title = document.createElement('h2')
+        title.classList.add('blog-post-title')
+        title.innerText = 'This is My New Post'
+        div.appendChild(title)
+        
+        let parentBlog = document.querySelector('.blog-main')
+        let latestBlog = document.querySelector('.blog-main .blog-post')
+        parentBlog.insertBefore(div, latestBlog)
+        console.log(latestBlog)
+      }
+
     </script>
   
 
