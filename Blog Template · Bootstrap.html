@@ -56,7 +56,7 @@
             EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly
             EX10) Write a selector to target the footer
         */
-        
+
       /* EX1) Write a selector to target the title of the page */
       .jumbotron h1 {
         color: rgb(89, 171, 252);
@@ -452,6 +452,44 @@
         EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
         EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
     */
+    // EX11) Write a function to add a new link into the navbar
+      const addNavLink = function() {
+        let nav = document.querySelector('.nav')
+        let newLink = document.createElement('a')
+        newLink.classList.add('p-2')
+        newLink.classList.add('text-muted')
+        newLink.href = 'https://strive.school/'
+        newLink.innerText = 'Strive'
+        nav.appendChild(newLink)
+        // console.log(newLink)
+      }
+
+      // EX12) Write a function to change the color of the main title      
+      const changeTitle = function(newColor){
+        let title = document.querySelector('.jumbotron h1')
+        title.style.color = newColor
+        // console.log(title)
+      }
+
+      // EX13) Write a function to change the background of the jumbotron
+      const changeJumbotronBg = function(newColor){
+        let jumb = document.querySelector('div.jumbotron')
+        jumb.classList.remove('bg-dark')
+        jumb.style.backgroundColor = newColor
+        // console.log(jumb)
+      }
+
+      // EX14) Write a function to remove all the links under "Elsewhere"
+      const removeLinksElsewhere = function(){
+        let ol = document.querySelector('aside div.p-4:last-of-type ol')
+        ol.innerHTML = ''
+        console.log(elseWhere)
+      }
+
+      // EX15) Write a function to change the column size for post headings
+      const changeColSizePostHeading = function(){
+        
+      }
     </script>
   
 
