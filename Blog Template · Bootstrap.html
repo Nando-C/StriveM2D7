@@ -498,7 +498,16 @@
         let parentIcon = document.querySelector('header div.col-4:last-of-type a.text-muted')
         parentIcon.innerText = ''
         console.log(parentIcon)
-      }      
+      }     
+      
+      // EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
+      const trimParagraph = function(){
+        let arrBlogP = document.querySelectorAll('div.blog-post p.blog-post-meta + p')
+        // for(let i=0; i<arrBlogP; i++){
+        //   arrBlogP
+        // }
+        console.log(arrBlogP)
+      }
     </script>
   
 
