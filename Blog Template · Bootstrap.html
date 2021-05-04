@@ -528,7 +528,6 @@
         console.log(latestBlog)
 
       }
-
       // EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
       const removeOldBlogPost = function(){
         let oldestPost = document.querySelector('div.blog-post:last-of-type')
@@ -536,9 +535,22 @@
         // console.log(oldestPost)
       }
 
-      
+      // EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
+      const alertNameAuthor = function(){
+        let authors = document.querySelectorAll('.blog-post-meta a')
+
+        authors.forEach((author) => {
+          author.addEventListener('mouseover', () => {
+            alert(`Post authored by ${author.innerText}`)
+            console.log(`Authored by ${author.innerText}`)
+          })
+        })
+      }
+
+      window.onload = function() {
+        alertNameAuthor()
+      }
 
     </script>
   
-
 </body></html>
