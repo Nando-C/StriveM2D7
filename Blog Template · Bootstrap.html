@@ -488,7 +488,9 @@
 
       // EX15) Write a function to change the column size for post headings
       const changeColSizePostHeading = function(){
-        
+        let colTitle = document.querySelector('div.jumbotron>div')
+        colTitle.classList.replace('col-md-6', 'col-md-12')
+        console.log(colTitle)
       }
     </script>
   
